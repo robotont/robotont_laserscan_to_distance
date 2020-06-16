@@ -2,7 +2,7 @@
 #This msg defines a message for dividing laserscan into 3 separate distances
 #It provides mean and minimum values for the three sectors.
 
-time stamp
+std_msgs/Header header
 
 float64 left_min
 float64 center_min
