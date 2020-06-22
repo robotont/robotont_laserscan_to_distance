@@ -29,7 +29,7 @@ def scan_callback(data):
 def convert():
     # Starts a new node
     rospy.init_node('laserscan_to_distance', anonymous=True)
-    rospy.Subscriber('/scan', LaserScan, scan_callback)
+    rospy.Subscriber('scan', LaserScan, scan_callback)
     rospy.spin()
 
 if __name__ == '__main__':
