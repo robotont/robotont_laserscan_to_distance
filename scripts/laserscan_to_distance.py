@@ -7,6 +7,8 @@ from robotont_laserscan_to_distance.msg import LaserScanSplit
 
 pub = rospy.Publisher('scan_to_distance', LaserScanSplit, queue_size=1)
 
+np.warnings.filterwarnings('ignore')
+
 def scan_callback(data):
     laserscan_distance = LaserScanSplit()
 
@@ -25,6 +27,7 @@ def scan_callback(data):
     laserscan_distance.left_min = np.nanmin(left_array)
 
     pub.publish(laserscan_distance)
+
 
 def convert():
     # Starts a new node
