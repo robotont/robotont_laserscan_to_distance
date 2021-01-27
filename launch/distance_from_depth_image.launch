@@ -3,9 +3,9 @@
   <arg name="__ns" default=""/>
   <!-- As eval may not contain double underscore expressions, a new argument is defined to by-pass this issue. -->
   <arg name="eval_underscore_bypass" value="$(arg __ns)"/>
-  <!-- When a namespace is specified, it is also converted into prefix with a trailing underscore. -->
+  <!-- When a namespace is specified, it is also converted into prefix with a trailing slash. -->
   <arg if="$(eval eval_underscore_bypass == '')" name="prefix" default=''/> 
-  <arg unless="$(eval eval_underscore_bypass == '')" name="prefix" default="$(arg __ns)_"/>
+  <arg unless="$(eval eval_underscore_bypass == '')" name="prefix" default="$(arg __ns)/"/>
   <node name="depthimage_to_laserscan" pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" >
     <remap from="image" to="camera/depth/image_rect_raw"/>
     <remap from="camera_info" to="camera/depth/camera_info"/>
