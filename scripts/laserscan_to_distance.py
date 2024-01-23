@@ -17,13 +17,13 @@ def scan_callback(data):
     distances = data.ranges
     array_len = len(distances)
 
-    right_array = distances[0:array_len/3]
+    right_array = distances[0:array_len//3]
     laserscan_distance.right_min = np.nanmin(right_array)
 
-    center_array = distances[array_len/3:2*array_len/3]
+    center_array = distances[array_len//3:2*array_len//3]
     laserscan_distance.center_min = np.nanmin(center_array)
 
-    left_array = distances[2*array_len/3:]
+    left_array = distances[2*array_len//3:]
     laserscan_distance.left_min = np.nanmin(left_array)
 
     pub.publish(laserscan_distance)
